@@ -9,7 +9,7 @@ const jerrySmith = "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
 const adjudicatorRick = "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
 const birdPerson = "https://rickandmortyapi.com/api/character/avatar/47.jpeg"
 
-const card = document.querySelectorAll(".card")
+const card = document.getElementById("card")
 const easyBtn = document.getElementById("easyBtn")
 const mediumBtn = document.getElementById("mediumBtn")
 const hardBtn = document.getElementById("hardBtn")
@@ -19,94 +19,104 @@ const hardContainer = document.getElementById("hardContainer")
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame(){
+    hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    easyContainer.innerHTML = ""
     easyContainer.innerHTML = 
-    `<div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>`
+    `<div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>`
+
 }
 
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame(){
+    hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    easyContainer.innerHTML = ""
     mediumContainer.innerHTML = 
-    `<div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>`
+    `<div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>`
 }
 
 hardBtn.addEventListener("click", hardGame)
 function hardGame(){
+    hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    easyContainer.innerHTML = ""
     hardContainer.innerHTML = 
-    `<div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>`
+    `<div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>
+    <div class="card" id="card"></div>`
 }
 
 
@@ -122,9 +132,9 @@ function loopThroughChar(chars) {
 
 function renderChar(char) {
   //console.log(char.image)
-  card.forEach(card => card.addEventListener("click", flipCard))
+  
 }
-
+card.addEventListener("click", flipCard)
 function flipCard(){
     console.log("clicked")
 }
