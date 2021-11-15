@@ -41,8 +41,98 @@ const easy16 = [
     { imgSrc: mrPoopy, name: "mr-poopy" }
 ]
 
+const medium25 = [
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" }
+]
+const hard36 = [
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" }
+]
 
-let randomizer =() => {
+easyBtn.addEventListener("click", easyGame)
+function easyGame() {
+    easyContainer.innerHTML = ""
+        mediumContainer.innerHTML = ""
+        hardContainer.innerHTML = ""
+    randomizerEasy()
+}
+
+mediumBtn.addEventListener("click", mediumGame)
+function mediumGame(){
+    easyContainer.innerHTML = ""
+        mediumContainer.innerHTML = ""
+        hardContainer.innerHTML = ""
+    randomizerMedium()
+}
+hardBtn.addEventListener("click", hardGame)
+function hardGame(){
+    easyContainer.innerHTML = ""
+        mediumContainer.innerHTML = ""
+        hardContainer.innerHTML = ""
+    randomizerHard()
+    
+}
+
+
+function randomizerEasy(){
     let cardData = easy16
     cardData.sort(() => Math.random() - 0.5);
     console.log(cardData)
@@ -60,22 +150,42 @@ let randomizer =() => {
         }
 }
 
-
-
-easyBtn.addEventListener("click", easyGame)
-function easyGame() {
-    randomizer()
+function randomizerMedium(){
+    let cardData = medium25
+    cardData.sort(() => Math.random() - 0.5);
+    console.log(cardData)
+    cardData.forEach(renderCards)
+    function renderCards(){
+       
+        const card = document.createElement("div")
+        card.className = "card"
+        const face = document.createElement("img")
+        face.className = "face"
+        const back = document.createElement("div")
+        back.className = "back"
+    
+        mediumContainer.append(card)
+        card.append(face, back)
+        }
 }
 
-
-
-
-
-
-
-
-
-
+function randomizerHard(){
+    let cardData = hard36
+    cardData.sort(() => Math.random() - 0.5);
+    console.log(cardData)
+    cardData.forEach(renderCards)
+    function renderCards(){
+        const card = document.createElement("div")
+        card.className = "card"
+        const face = document.createElement("img")
+        face.className = "face"
+        const back = document.createElement("div")
+        back.className = "back"
+    
+        hardContainer.append(card)
+        card.append(face, back)
+        }
+}
 
 fetch(char_url)
     .then(res => res.json())
