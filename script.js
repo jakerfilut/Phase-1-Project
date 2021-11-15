@@ -8,8 +8,9 @@ const bethSmith = "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
 const jerrySmith = "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
 const adjudicatorRick = "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
 const birdPerson = "https://rickandmortyapi.com/api/character/avatar/47.jpeg"
+const mrPoopy = "https://rickandmortyapi.com/api/character/avatar/244.jpeg"
 
-const card = document.getElementById("card")
+const card = document.querySelectorAll(".card")
 const easyBtn = document.getElementById("easyBtn")
 const mediumBtn = document.getElementById("mediumBtn")
 const hardBtn = document.getElementById("hardBtn")
@@ -17,107 +18,63 @@ const easyContainer = document.getElementById("easyContainer")
 const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
 
+
+
+//Maybe create an array of all the images. Then do a for each to populate the cards.
+
+const easy16 = [
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" }
+]
+
+
+let randomizer =() => {
+    let cardData = easy16
+    cardData.sort(() => Math.random() - 0.5);
+    console.log(cardData)
+    cardData.forEach(renderCards)
+    function renderCards(){
+        const card = document.createElement("div")
+        card.className = "card"
+        const face = document.createElement("img")
+        face.className = "face"
+        const back = document.createElement("div")
+        back.className = "back"
+    
+        easyContainer.append(card)
+        card.append(face, back)
+        }
+}
+
+
+
 easyBtn.addEventListener("click", easyGame)
-function easyGame(){
-    hardContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    easyContainer.innerHTML = ""
-    easyContainer.innerHTML = 
-    `<div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>`
-
+function easyGame() {
+    randomizer()
 }
 
-mediumBtn.addEventListener("click", mediumGame)
-function mediumGame(){
-    hardContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    easyContainer.innerHTML = ""
-    mediumContainer.innerHTML = 
-    `<div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>`
-}
 
-hardBtn.addEventListener("click", hardGame)
-function hardGame(){
-    hardContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    easyContainer.innerHTML = ""
-    hardContainer.innerHTML = 
-    `<div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>
-    <div class="card" id="card"></div>`
-}
+
+
+
+
+
+
+
 
 
 fetch(char_url)
@@ -127,14 +84,119 @@ fetch(char_url)
 function loopThroughChar(chars) {
     //console.log(chars)
     chars.results.forEach(renderChar)
-   
+
 }
 
 function renderChar(char) {
-  //console.log(char.image)
-  
+    //console.log(char.image)
+
 }
-card.addEventListener("click", flipCard)
-function flipCard(){
-    console.log("clicked")
-}
+// card.addEventListener("click", flipCard)
+// function flipCard(){
+//     console.log("clicked")
+// }
+
+
+
+
+// easyBtn.addEventListener("click", easyGame)
+// function easyGame(){
+//     hardContainer.innerHTML = ""
+//     mediumContainer.innerHTML = ""
+//     easyContainer.innerHTML = ""
+//     easyContainer.innerHTML = 
+//     `<div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>`
+
+// }
+
+// mediumBtn.addEventListener("click", mediumGame)
+// function mediumGame(){
+//     hardContainer.innerHTML = ""
+//     mediumContainer.innerHTML = ""
+//     easyContainer.innerHTML = ""
+//     mediumContainer.innerHTML = 
+//     `<div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>`
+// }
+
+// hardBtn.addEventListener("click", hardGame)
+// function hardGame(){
+//     hardContainer.innerHTML = ""
+//     mediumContainer.innerHTML = ""
+//     easyContainer.innerHTML = ""
+//     hardContainer.innerHTML = 
+//     `<div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>
+//     <div class="card" id="card"></div>`
+// }
