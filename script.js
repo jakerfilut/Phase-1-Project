@@ -10,6 +10,105 @@ const adjudicatorRick = "https://rickandmortyapi.com/api/character/avatar/8.jpeg
 const birdPerson = "https://rickandmortyapi.com/api/character/avatar/47.jpeg"
 
 const card = document.querySelectorAll(".card")
+const easyBtn = document.getElementById("easyBtn")
+const mediumBtn = document.getElementById("mediumBtn")
+const hardBtn = document.getElementById("hardBtn")
+const easyContainer = document.getElementById("easyContainer")
+const mediumContainer = document.getElementById("mediumContainer")
+const hardContainer = document.getElementById("hardContainer")
+
+easyBtn.addEventListener("click", easyGame)
+function easyGame(){
+    easyContainer.innerHTML = 
+    `<div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>`
+}
+
+mediumBtn.addEventListener("click", mediumGame)
+function mediumGame(){
+    mediumContainer.innerHTML = 
+    `<div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>`
+}
+
+hardBtn.addEventListener("click", hardGame)
+function hardGame(){
+    hardContainer.innerHTML = 
+    `<div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>`
+}
+
 
 fetch(char_url)
     .then(res => res.json())
