@@ -148,10 +148,16 @@ function randomizerEasy(){
     
         easyContainer.append(card)
         card.append(face, back)
+
+        card.addEventListener('click', flipCard)
+        function flipCard(){
+            console.log("Clicked")
+            card.classList.toggle('flipCard')
+        }
         }
 }
 
-function randomizerMedium(cards){
+function randomizerMedium(){
     let cardData = medium25
     cardData.sort(() => Math.random() - 0.5);
     console.log(cardData)
@@ -167,6 +173,12 @@ function randomizerMedium(cards){
     
         mediumContainer.append(card)
         card.append(face, back)
+
+        card.addEventListener('click', flipCard)
+        function flipCard(){
+            console.log("Clicked")
+            card.classList.toggle('flipCard')
+        }
         }
 }
 
@@ -186,6 +198,12 @@ function randomizerHard(){
     
         hardContainer.append(card)
         card.append(face, back)
+
+        card.addEventListener('click', flipCard)
+        function flipCard(){
+            console.log("Clicked")
+            card.classList.toggle('flipCard')
+        }
         }
 }
 
