@@ -18,7 +18,8 @@ const easyContainer = document.getElementById("easyContainer")
 const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
 const turns = document.getElementById("turns")
-const flippedCard = document.querySelectorAll("flipCard")
+const flippedCard = document.getElementsByClassName("card flipCard disabled")
+
 
 let turnsTaken = 0;
 
@@ -239,17 +240,13 @@ function checkFlippedCards(e) {
     clickedCard.classList.add("turnedOver")
     const flippedCardsCheck = document.querySelectorAll(".turnedOver")
     //console.log(clickedCard.parentNode)
-    let i = 0;
-
-
     if (flippedCardsCheck.length === 2) {
         if (flippedCardsCheck[0].getAttribute("id") === flippedCardsCheck[1].getAttribute("id")) {
-            i =+ 1
-            console.log(i)
             flippedCardsCheck.forEach(removeTurnOver)
             function removeTurnOver(cards) {
                 cards.classList.remove("turnedOver")
                 cards.parentNode.classList.add("disabled")
+                console.log(flippedCard.length)
             }
             turnsTaken++
             turns.innerText = "Turns Taken " + `${turnsTaken}`
@@ -265,7 +262,7 @@ function checkFlippedCards(e) {
             turns.innerText = "Turns Taken " + `${turnsTaken}`
         }
     }
-    if (flippedCard.length === 16) {
+    if (flippedCard.length === easy16.length) {
         console.log("You Win")
     }
 }
