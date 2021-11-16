@@ -17,8 +17,10 @@ const hardBtn = document.getElementById("hardBtn")
 const easyContainer = document.getElementById("easyContainer")
 const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
+const turns = document.getElementById("turns")
+const flippedCard = document.querySelectorAll("flipCard")
 
-
+let turnsTaken = 0;
 
 //Maybe create an array of all the images. Then do a for each to populate the cards.
 
@@ -237,27 +239,38 @@ function checkFlippedCards(e) {
     clickedCard.classList.add("turnedOver")
     const flippedCardsCheck = document.querySelectorAll(".turnedOver")
     //console.log(clickedCard.parentNode)
+    let i = 0;
 
 
     if (flippedCardsCheck.length === 2) {
         if (flippedCardsCheck[0].getAttribute("id") === flippedCardsCheck[1].getAttribute("id")) {
-           flippedCardsCheck.forEach(removeTurnOver)
-           function removeTurnOver(cards){
-               console.log(cards)
-               cards.classList.remove("turnedOver")
-               cards.parentNode.classList.add("disabled")
-           }
+            i =+ 1
+            console.log(i)
+            flippedCardsCheck.forEach(removeTurnOver)
+            function removeTurnOver(cards) {
+                cards.classList.remove("turnedOver")
+                cards.parentNode.classList.add("disabled")
+            }
+            turnsTaken++
+            turns.innerText = "Turns Taken " + `${turnsTaken}`
         } else {
             flippedCardsCheck.forEach(flipBackCards)
-            function flipBackCards(cards){
-           // console.log(cards)
+            function flipBackCards(cards) {
+
                 cards.classList.remove("turnedOver")
                 cards.parentNode.classList.remove("disabled")
                 setTimeout(() => cards.parentNode.classList.remove("flipCard"), 750);
             }
+            turnsTaken++
+            turns.innerText = "Turns Taken " + `${turnsTaken}`
         }
     }
-
+    if (flippedCard.length === 16) {
+        console.log("You Win")
+    }
 }
+
+
+
 
     // clickedCard.classList.add('flipped')
