@@ -232,6 +232,7 @@ function renderChar(char) {
 
 function checkFlippedCards(e) {
     const clickedCard = e.target
+    clickedCard.parentNode.classList.add("disabled")
 
     clickedCard.classList.add("turnedOver")
     const flippedCardsCheck = document.querySelectorAll(".turnedOver")
@@ -242,16 +243,16 @@ function checkFlippedCards(e) {
         if (flippedCardsCheck[0].getAttribute("id") === flippedCardsCheck[1].getAttribute("id")) {
            flippedCardsCheck.forEach(removeTurnOver)
            function removeTurnOver(cards){
+               console.log(cards)
                cards.classList.remove("turnedOver")
-               cards.styles.pointerEvent = "none"
+               cards.parentNode.classList.add("disabled")
            }
         } else {
-            
-            
             flippedCardsCheck.forEach(flipBackCards)
             function flipBackCards(cards){
-            console.log(cards)
+           // console.log(cards)
                 cards.classList.remove("turnedOver")
+                cards.parentNode.classList.remove("disabled")
                 setTimeout(() => cards.parentNode.classList.remove("flipCard"), 750);
             }
         }
