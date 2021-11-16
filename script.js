@@ -143,29 +143,32 @@ const hard42 = [
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
-    easyContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    hardContainer.innerHTML = ""
+    reset()
     difficulty = easy16;
     randomizer()
 }
 
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame() {
-    easyContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    hardContainer.innerHTML = ""
+    reset()
     difficulty = medium30;
     randomizer()
 }
 hardBtn.addEventListener("click", hardGame)
 function hardGame() {
-    easyContainer.innerHTML = ""
-    mediumContainer.innerHTML = ""
-    hardContainer.innerHTML = ""
+    reset()
     difficulty = hard42;
     randomizer()
 
+}
+
+function reset(){
+    easyContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    hardContainer.innerHTML = ""
+    turnsTaken = 0;
+    turns.innerText = "Turns Taken " + `${turnsTaken}`
+    newcomment = ""
 }
 
 function randomizer() {
@@ -234,9 +237,9 @@ function checkFlippedCards(e) {
         form.addEventListener("submit", highscore)
         function highscore(e) {
             e.preventDefault()
-            let newComment = document.createElement("ul")
+            let newComment = document.createElement("li")
             let nameInput = e.target.comment.value
-            newComment.textContent = `Name: ${nameInput}Score:  ${turnsTaken}`
+            newComment.textContent = `Name: ${nameInput} Score:  ${turnsTaken}`
             commentList.append(newComment)
             form.reset()
         }
@@ -244,6 +247,7 @@ function checkFlippedCards(e) {
         function closeScores(){
             console.log("closed")
             document.querySelector(".bg-modal").style.display = "none";
+            reset()
         }
 
     }

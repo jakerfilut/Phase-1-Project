@@ -28,8 +28,12 @@ padding: 0;
 }
 
   .title {
-      color: crimson;
+      font-size: 100px;
+      color: rgb(43, 147, 171);
       text-align: center;
+      text-shadow: 2px 2px 8px #25ff04;
+      text-shadow: 2px rgb(0, 0, 0);
+
   }
 
   .button {
