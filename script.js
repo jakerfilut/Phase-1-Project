@@ -1,4 +1,3 @@
-//code
 const base_url = "https://rickandmortyapi.com/api"
 const char_url = "https://rickandmortyapi.com/api/character"
 const rickSanchez = "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
@@ -19,11 +18,21 @@ const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
 const turns = document.getElementById("turns")
 const flippedCard = document.getElementsByClassName("card flipCard disabled")
-
+let difficulty;
 
 let turnsTaken = 0;
 
-//Maybe create an array of all the images. Then do a for each to populate the cards.
+fetch(char_url)
+    .then(res => res.json())
+    .then(loopThroughChar)
+
+function loopThroughChar(chars) {
+
+    chars.results.forEach(renderChar)
+}
+
+function renderChar(char) {
+}
 
 const easy16 = [
     { imgSrc: rickSanchez, name: "rick-sanchez" },
@@ -44,7 +53,7 @@ const easy16 = [
     { imgSrc: mrPoopy, name: "mr-poopy" }
 ]
 
-const medium25 = [
+const medium30 = [
     { imgSrc: rickSanchez, name: "rick-sanchez" },
     { imgSrc: mortySmith, name: "morty-smith" },
     { imgSrc: summerSmith, name: "summer-smith" },
@@ -61,17 +70,22 @@ const medium25 = [
     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
     { imgSrc: birdPerson, name: "bird-preson" },
     { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: birdPerson, name: "bird-preson" },
     { imgSrc: mrPoopy, name: "mr-poopy" },
     { imgSrc: rickSanchez, name: "rick-sanchez" },
     { imgSrc: mortySmith, name: "morty-smith" },
     { imgSrc: summerSmith, name: "summer-smith" },
     { imgSrc: bethSmith, name: "beth-smith" },
     { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
     { imgSrc: birdPerson, name: "bird-preson" },
     { imgSrc: mrPoopy, name: "mr-poopy" }
 ]
-const hard36 = [
+const hard42 = [
     { imgSrc: rickSanchez, name: "rick-sanchez" },
     { imgSrc: mortySmith, name: "morty-smith" },
     { imgSrc: summerSmith, name: "summer-smith" },
@@ -99,15 +113,21 @@ const hard36 = [
     { imgSrc: rickSanchez, name: "rick-sanchez" },
     { imgSrc: mortySmith, name: "morty-smith" },
     { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
     { imgSrc: birdPerson, name: "bird-preson" },
     { imgSrc: mrPoopy, name: "mr-poopy" },
+    { imgSrc: rickSanchez, name: "rick-sanchez" },
+    { imgSrc: mortySmith, name: "morty-smith" },
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: birdPerson, name: "bird-preson" },
     { imgSrc: mrPoopy, name: "mr-poopy" },
     { imgSrc: rickSanchez, name: "rick-sanchez" },
     { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" }
+    { imgSrc: summerSmith, name: "summer-smith" },
+    { imgSrc: bethSmith, name: "beth-smith" },
+    { imgSrc: jerrySmith, name: "jerry-smith" },
+    { imgSrc: birdPerson, name: "bird-preson" },
+    { imgSrc: mrPoopy, name: "mr-poopy" }
 ]
 
 easyBtn.addEventListener("click", easyGame)
@@ -115,7 +135,8 @@ function easyGame() {
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
-    randomizerEasy()
+    difficulty = easy16;
+    randomizer()
 }
 
 mediumBtn.addEventListener("click", mediumGame)
@@ -123,22 +144,22 @@ function mediumGame() {
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
-    randomizerMedium()
+    difficulty = medium30;
+    randomizer()
 }
 hardBtn.addEventListener("click", hardGame)
 function hardGame() {
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
-    randomizerHard()
+    difficulty = hard42;
+    randomizer()
 
 }
 
-
-function randomizerEasy() {
-    let cardData = easy16
+function randomizer() {
+    let cardData = difficulty
     cardData.sort(() => Math.random() - 0.5);
-    //console.log(cardData)
     cardData.forEach(renderCards)
     function renderCards(cards) {
         const card = document.createElement("div")
@@ -149,89 +170,23 @@ function randomizerEasy() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-
-        easyContainer.append(card)
+        if (difficulty.length === 16) {
+            easyContainer.append(card)
+            card.append(face, back)
+        } if (difficulty.length === 30) {
+            mediumContainer.append(card)
+            card.append(face, back)
+        } if (difficulty.length === 42) {
+            hardContainer.append(card)
         card.append(face, back)
-
+        }
         card.addEventListener('click', flipCard)
         function flipCard(e) {
-            //console.log("Clicked")
             card.classList.toggle('flipCard')
-            // console.log(e.target)
             checkFlippedCards(e);
         }
     }
 }
-
-function randomizerMedium() {
-    let cardData = medium25
-    cardData.sort(() => Math.random() - 0.5);
-    console.log(cardData)
-    cardData.forEach(renderCards)
-    function renderCards(cards) {
-        const card = document.createElement("div")
-        card.className = "card"
-        const face = document.createElement("img")
-        face.className = "face"
-        face.src = cards.imgSrc
-        const back = document.createElement("div")
-        back.className = "back"
-
-        mediumContainer.append(card)
-        card.append(face, back)
-
-        card.addEventListener('click', flipCard)
-        function flipCard() {
-            console.log("Clicked")
-            card.classList.toggle('flipCard')
-        }
-    }
-}
-
-function randomizerHard() {
-    let cardData = hard36
-    cardData.sort(() => Math.random() - 0.5);
-    console.log(cardData)
-    cardData.forEach(renderCards)
-    function renderCards(cards) {
-        const card = document.createElement("div")
-        card.className = "card"
-        const face = document.createElement("img")
-        face.className = "face"
-        face.src = cards.imgSrc
-        const back = document.createElement("div")
-        back.className = "back"
-
-        hardContainer.append(card)
-        card.append(face, back)
-
-        card.addEventListener('click', flipCard)
-        function flipCard() {
-            //console.log("Clicked")
-            card.classList.toggle('flipCard')
-        }
-    }
-}
-
-fetch(char_url)
-    .then(res => res.json())
-    .then(loopThroughChar)
-
-function loopThroughChar(chars) {
-    //console.log(chars)
-    chars.results.forEach(renderChar)
-
-}
-
-function renderChar(char) {
-    //console.log(char.image)
-
-}
-
-// const checkFlippedCards = (e) => {
-//     console.log(e)
-//     const clickedCard = e.target
-// }
 
 function checkFlippedCards(e) {
     const clickedCard = e.target
@@ -239,7 +194,6 @@ function checkFlippedCards(e) {
 
     clickedCard.classList.add("turnedOver")
     const flippedCardsCheck = document.querySelectorAll(".turnedOver")
-    //console.log(clickedCard.parentNode)
     if (flippedCardsCheck.length === 2) {
         if (flippedCardsCheck[0].getAttribute("id") === flippedCardsCheck[1].getAttribute("id")) {
             flippedCardsCheck.forEach(removeTurnOver)
@@ -262,12 +216,7 @@ function checkFlippedCards(e) {
             turns.innerText = "Turns Taken " + `${turnsTaken}`
         }
     }
-    if (flippedCard.length === easy16.length) {
+    if (flippedCard.length === difficulty.length) {
         console.log("You Win")
     }
 }
-
-
-
-
-    // clickedCard.classList.add('flipped')
