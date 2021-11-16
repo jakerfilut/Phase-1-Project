@@ -14,13 +14,21 @@
     <button id= "hardBtn" class=button>Hard</button>
     <span id= "turns">Turns Taken 0</span>
   </h2>
-  <div class="back-of-deck-card-container">
-    
-  </div>
-
+  <div class="back-of-deck-card-container"></div>
   <div id= "easyContainer" class="easy-card-container"></div>
   <div id= "mediumContainer" class="medium-card-container"></div>
   <div id= "hardContainer" class="hard-card-container"></div>
+  <div id="modal" class = "bg-modal">
+    <div class = "modal-content">
+      <div class = "close">+</div>
+      <form id="form" type="submit">
+        <p id= "winner"></p>
+        <input id="comment" type ="text" placeholder="Name">
+        <button class = "button" id= "submitScores">Submit Score</button>
+        <h2>HIGHSCORES</h2>
+        <div id="commentList"></div>
+      </form>
+  </div>
 
   <script src="script.js"></script>
 </body>

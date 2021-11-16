@@ -18,6 +18,10 @@ const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
 const turns = document.getElementById("turns")
 const flippedCard = document.getElementsByClassName("card flipCard disabled")
+const modal = document.getElementById("modal")
+const winner = document.getElementById("winner")
+const form = document.getElementById("form")
+const commentList = document.getElementById("commentList")
 let difficulty;
 
 let turnsTaken = 0;
@@ -34,23 +38,30 @@ function loopThroughChar(chars) {
 function renderChar(char) {
 }
 
+// const easy16 = [
+//     { imgSrc: rickSanchez, name: "rick-sanchez" },
+//     { imgSrc: mortySmith, name: "morty-smith" },
+//     { imgSrc: summerSmith, name: "summer-smith" },
+//     { imgSrc: bethSmith, name: "beth-smith" },
+//     { imgSrc: jerrySmith, name: "jerry-smith" },
+//     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+//     { imgSrc: birdPerson, name: "bird-preson" },
+//     { imgSrc: mrPoopy, name: "mr-poopy" },
+//     { imgSrc: rickSanchez, name: "rick-sanchez" },
+//     { imgSrc: mortySmith, name: "morty-smith" },
+//     { imgSrc: summerSmith, name: "summer-smith" },
+//     { imgSrc: bethSmith, name: "beth-smith" },
+//     { imgSrc: jerrySmith, name: "jerry-smith" },
+//     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
+//     { imgSrc: birdPerson, name: "bird-preson" },
+//     { imgSrc: mrPoopy, name: "mr-poopy" }
+// ]
+
 const easy16 = [
     { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
+
     { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" }
+
 ]
 
 const medium30 = [
@@ -170,7 +181,8 @@ function randomizer() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-        if (difficulty.length === 16) {
+        if (difficulty.length === 2) {
+            //change back to 16 after testing
             easyContainer.append(card)
             card.append(face, back)
         } if (difficulty.length === 30) {
@@ -178,7 +190,7 @@ function randomizer() {
             card.append(face, back)
         } if (difficulty.length === 42) {
             hardContainer.append(card)
-        card.append(face, back)
+            card.append(face, back)
         }
         card.addEventListener('click', flipCard)
         function flipCard(e) {
@@ -217,6 +229,22 @@ function checkFlippedCards(e) {
         }
     }
     if (flippedCard.length === difficulty.length) {
-        console.log("You Win")
+        document.querySelector(".bg-modal").style.display = "flex";
+        winner.innerText = "Congratulations, Your score was " + `${turnsTaken}`
+        form.addEventListener("submit", highscore)
+        function highscore(e) {
+            e.preventDefault()
+            let newComment = document.createElement("ul")
+            let nameInput = e.target.comment.value
+            newComment.textContent = `Name: ${nameInput}Score:  ${turnsTaken}`
+            commentList.append(newComment)
+            form.reset()
+        }
+        document.querySelector('.close').addEventListener('click', closeScores)
+        function closeScores(){
+            console.log("closed")
+            document.querySelector(".bg-modal").style.display = "none";
+        }
+
     }
 }
