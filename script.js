@@ -110,34 +110,34 @@ const hard36 = [
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
     easyContainer.innerHTML = ""
-        mediumContainer.innerHTML = ""
-        hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    hardContainer.innerHTML = ""
     randomizerEasy()
 }
 
 mediumBtn.addEventListener("click", mediumGame)
-function mediumGame(){
+function mediumGame() {
     easyContainer.innerHTML = ""
-        mediumContainer.innerHTML = ""
-        hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    hardContainer.innerHTML = ""
     randomizerMedium()
 }
 hardBtn.addEventListener("click", hardGame)
-function hardGame(){
+function hardGame() {
     easyContainer.innerHTML = ""
-        mediumContainer.innerHTML = ""
-        hardContainer.innerHTML = ""
+    mediumContainer.innerHTML = ""
+    hardContainer.innerHTML = ""
     randomizerHard()
-    
+
 }
 
 
-function randomizerEasy(){
+function randomizerEasy() {
     let cardData = easy16
     cardData.sort(() => Math.random() - 0.5);
-    console.log(cardData)
+    //console.log(cardData)
     cardData.forEach(renderCards)
-    function renderCards(cards){
+    function renderCards(cards) {
         const card = document.createElement("div")
         card.className = "card"
         const face = document.createElement("img")
@@ -145,24 +145,27 @@ function randomizerEasy(){
         face.src = cards.imgSrc
         const back = document.createElement("div")
         back.className = "back"
-    
+        back.id = cards.name
+
         easyContainer.append(card)
         card.append(face, back)
 
         card.addEventListener('click', flipCard)
-        function flipCard(){
-            console.log("Clicked")
+        function flipCard(e) {
+            //console.log("Clicked")
             card.classList.toggle('flipCard')
+            // console.log(e.target)
+            checkFlippedCards(e);
         }
-        }
+    }
 }
 
-function randomizerMedium(){
+function randomizerMedium() {
     let cardData = medium25
     cardData.sort(() => Math.random() - 0.5);
     console.log(cardData)
     cardData.forEach(renderCards)
-    function renderCards(cards){
+    function renderCards(cards) {
         const card = document.createElement("div")
         card.className = "card"
         const face = document.createElement("img")
@@ -170,24 +173,24 @@ function randomizerMedium(){
         face.src = cards.imgSrc
         const back = document.createElement("div")
         back.className = "back"
-    
+
         mediumContainer.append(card)
         card.append(face, back)
 
         card.addEventListener('click', flipCard)
-        function flipCard(){
+        function flipCard() {
             console.log("Clicked")
             card.classList.toggle('flipCard')
         }
-        }
+    }
 }
 
-function randomizerHard(){
+function randomizerHard() {
     let cardData = hard36
     cardData.sort(() => Math.random() - 0.5);
     console.log(cardData)
     cardData.forEach(renderCards)
-    function renderCards(cards){
+    function renderCards(cards) {
         const card = document.createElement("div")
         card.className = "card"
         const face = document.createElement("img")
@@ -195,16 +198,16 @@ function randomizerHard(){
         face.src = cards.imgSrc
         const back = document.createElement("div")
         back.className = "back"
-    
+
         hardContainer.append(card)
         card.append(face, back)
 
         card.addEventListener('click', flipCard)
-        function flipCard(){
-            console.log("Clicked")
+        function flipCard() {
+            //console.log("Clicked")
             card.classList.toggle('flipCard')
         }
-        }
+    }
 }
 
 fetch(char_url)
@@ -222,3 +225,38 @@ function renderChar(char) {
 
 }
 
+// const checkFlippedCards = (e) => {
+//     console.log(e)
+//     const clickedCard = e.target
+// }
+
+function checkFlippedCards(e) {
+    const clickedCard = e.target
+
+    clickedCard.classList.add("turnedOver")
+    const flippedCardsCheck = document.querySelectorAll(".turnedOver")
+    //console.log(clickedCard.parentNode)
+
+
+    if (flippedCardsCheck.length === 2) {
+        if (flippedCardsCheck[0].getAttribute("id") === flippedCardsCheck[1].getAttribute("id")) {
+           flippedCardsCheck.forEach(removeTurnOver)
+           function removeTurnOver(cards){
+               cards.classList.remove("turnedOver")
+               cards.styles.pointerEvent = "none"
+           }
+        } else {
+            
+            
+            flippedCardsCheck.forEach(flipBackCards)
+            function flipBackCards(cards){
+            console.log(cards)
+                cards.classList.remove("turnedOver")
+                setTimeout(() => cards.parentNode.classList.remove("flipCard"), 750);
+            }
+        }
+    }
+
+}
+
+    // clickedCard.classList.add('flipped')

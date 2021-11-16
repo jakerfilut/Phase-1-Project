@@ -40,7 +40,9 @@ padding: 0;
   }
  
 .card {
-    position: relative;
+    /* position: relative; */
+    /* Need to figure out how to not configure width and heigh and use psotion relative
+    if I use postion relative the cards go white and and put all together. */
     margin: 5px auto 0;
     width: 175px;
     height: 175px;
@@ -62,6 +64,10 @@ padding: 0;
 
 .flipCard {
     transform: rotateY(180deg);
+}
+
+.disabled {
+    pointer-events: none;
 }
 
 
