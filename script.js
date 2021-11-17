@@ -1,5 +1,6 @@
 const base_url = "https://rickandmortyapi.com/api"
 const char_url_page = "https://rickandmortyapi.com/api/character?page="
+const portalImg = "https://www.pngfind.com/pngs/m/49-496250_rick-and-morty-portal-png-transparent-png.png"
 
 const card = document.querySelectorAll(".card")
 const easyBtn = document.getElementById("easyBtn")
@@ -8,15 +9,17 @@ const hardBtn = document.getElementById("hardBtn")
 const easyContainer = document.getElementById("easyContainer")
 const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
-const turns = document.getElementById("turns")
+const turns = document.createElement("h2")
 const flippedCard = document.getElementsByClassName("card flipCard disabled")
 const modal = document.getElementById("modal")
 const winner = document.getElementById("winner")
 const form = document.getElementById("form")
 const commentList = document.getElementById("commentList")
 const newComment = document.createElement("ul")
+const resetBtn = document.createElement("button")
+resetBtn.innerText = "RESET"
+resetBtn.className = "button"
 let difficulty;
-console.log(difficulty)
 let turnsTaken = 0;
 let finalArray = [];
 
@@ -24,19 +27,28 @@ easyBtn.addEventListener("click", easyGame)
 function easyGame() {
     difficulty = 1;
     reset()
+    turns.innerText = "Turns Taken " + `${turnsTaken}`
+    easyContainer.append(turns, resetBtn)
     fetchData()
+    document.querySelector(".buttonContainer").style.display = "none"
 }
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame() {
     difficulty = 12
     reset()
+    turns.innerText = "Turns Taken " + `${turnsTaken}`
+    mediumContainer.append(turns, resetBtn)
     fetchData()
+    document.querySelector(".buttonContainer").style.display = "none"
 }
 hardBtn.addEventListener("click", hardGame)
 function hardGame() {
     difficulty = 15
     reset()
+    turns.innerText = "Turns Taken " + `${turnsTaken}`
+    hardContainer.append(turns, resetBtn)
     fetchData()
+    document.querySelector(".buttonContainer").style.display = "none"
 }
 
 function reset() {
@@ -44,8 +56,9 @@ function reset() {
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
     turnsTaken = 0;
-    turns.innerText = "Turns Taken " + `${turnsTaken}`
+    //turns.innerText = "Turns Taken " + `${turnsTaken}`
     finalArray = [];
+    document.querySelector(".buttonContainer").style.display = "inline"
 }
 
 function fetchData(){
@@ -150,6 +163,4 @@ function checkFlippedCards(e) {
     }
 }
 
-function selectedCard(){
-    
-}
+resetBtn.addEventListener("click", reset)
