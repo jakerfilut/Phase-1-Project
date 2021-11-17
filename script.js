@@ -21,11 +21,10 @@ let finalArray = [];
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
-    difficulty = 8;
+    difficulty = 1;
     reset()
     fetchData()
 }
-
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame() {
     difficulty = 12
@@ -64,7 +63,6 @@ function fetchData(){
             let newImgObj2 = { imgSrc: newImage2, name: newName2 };
             finalArray.push(newImgObj, newImgObj2)
         }
-        console.log(finalArray)
         randomizer()
     }
 }
@@ -81,7 +79,7 @@ function randomizer() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-        if (finalArray.length === 16) {
+        if (finalArray.length === 2) {
             easyContainer.append(card)
             card.append(face, back)
         } if (finalArray.length === 24) {
@@ -132,17 +130,20 @@ function checkFlippedCards(e) {
         function highscore(e) {
             e.preventDefault()
             console.log({ e })
-            // let newComment = document.createElement("ul")
-            // let nameInput = e.target.comment.value
-            // newComment.innerText = `Name: ${nameInput} Score:  ${turnsTaken}`
+            let newComment = document.createElement("ul")
+            let nameInput = e.target.comment.value
+            newComment.innerText = `Name: ${nameInput} Score:  ${turnsTaken}`
             console.log(newComment)
             commentList.appendChild(newComment)
+            //form.removeEventListener("submit", highscore)
+            // This will work but if you hit submit again it deletes highscores.
             form.reset()
         }
         document.querySelector('.close').addEventListener('click', closeScores)
         function closeScores() {
-            console.log("closed")
+            //console.log("closed")
             document.querySelector(".bg-modal").style.display = "none";
+            console.log("closed")
             reset()
         }
     }
