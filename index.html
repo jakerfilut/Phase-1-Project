@@ -7,14 +7,25 @@
 </head>
 
 <body>
-  <h1 class="title"> Rick and Morty Matching Game</h1>
+  <h1 class="title"> RICK AND MORTY</h1>
+  <h1 class="matching-game">Matching Game</h1>
   <h2 class="buttonCenter">
+    <span id= "turns">Turns Taken 0</span>
+  </h2>
+  <div class = buttonContainer>
+    <h1 class = title2>Select Difficulty</h1>
     <button id= "easyBtn" class=button>Easy</button>
     <button id= "mediumBtn" class=button>Medium</button>
     <button id= "hardBtn" class=button>Hard</button>
-    <span id= "turns">Turns Taken 0</span>
-  </h2>
+  </div>
   <div class="back-of-deck-card-container"></div>
+  <div class = cardselect>
+  <h1 class = title2>Select Back Of Card</h1>
+  <button id= "easyBtn" class=button>Portal</button>
+    <button id= "mediumBtn" class=button>Rick</button>
+    <button id= "hardBtn" class=button>Morty</button>
+  </div>
+  <div class= "card1"></div>
   <div id= "easyContainer" class="easy-card-container"></div>
   <div id= "mediumContainer" class="medium-card-container"></div>
   <div id= "hardContainer" class="hard-card-container"></div>
@@ -24,7 +35,7 @@
       <form id="form" type="submit">
         <p id= "winner"></p>
         <input id="comment" type ="text" placeholder="Name">
-        <button  class = "button" id= "submitScores">Submit Score</button>
+        <button  class = "submitbutton" id= "submitScores">Submit Score</button>
         <h2>HIGHSCORES</h2>
         <div id="commentList"></div>
       </form>

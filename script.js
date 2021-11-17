@@ -16,6 +16,7 @@ const form = document.getElementById("form")
 const commentList = document.getElementById("commentList")
 const newComment = document.createElement("ul")
 let difficulty;
+console.log(difficulty)
 let turnsTaken = 0;
 let finalArray = [];
 
@@ -147,4 +148,8 @@ function checkFlippedCards(e) {
             reset()
         }
     }
+}
+
+function selectedCard(){
+    
 }

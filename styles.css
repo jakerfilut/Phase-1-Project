@@ -26,20 +26,80 @@ padding: 0;
 }
 
   .title {
+      font-family: Soopafresh;
       font-size: 100px;
       color: rgb(43, 147, 171);
       text-align: center;
       text-shadow: 2px 2px 8px #25ff04;
       text-shadow: 2px rgb(0, 0, 0);
-
+  }
+  .matching-game {
+    font-family: Soopafresh;
+    font-size: 50px;
+    color: rgb(43, 147, 171);
+    text-align: center;
+    text-shadow: 2px 2px 8px #25ff04;
+    text-shadow: 2px rgb(0, 0, 0);
   }
 
   .button {
-    background-color: #e04b52;
-    color: whitesmoke;
-    font-size: 18px;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d96f5 5%, #1e62d0 100%);
+	background-color:#3d96f5;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+    text-align: center;
+    margin: 70px;
+    font-size: 50px;
+}
+
+.submitbutton {
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d96f5 5%, #1e62d0 100%);
+	background-color:#3d96f5;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+    text-align: center;
+    font-size: 10px;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d96f5 100%);
+	background-color:#1e62d0;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.buttonContainer{
+    text-align: center;  
+    width: auto;  
+    height: auto;  
+    padding-top: center; 
     
-  }
+}
+
+.title2 {
+    font-size: 100px;
+}
  
 .card {
     /* position: relative; */
@@ -50,8 +110,6 @@ padding: 0;
     height: 175px;
     transform-style: preserve-3d;
     transition: .3s ease;
-    
-    
 }
 
 .face, .back{
@@ -96,7 +154,6 @@ padding: 0;
     padding: 40px;
     text-align:center;
     position: relative;
-   
 }
 
 .close{
@@ -106,11 +163,24 @@ padding: 0;
     font-size: 40px;
     transform: rotate(45deg);
     cursor: pointer;
-
-
 }
 
+.card1 {
+    /* position: relative; */
+    /* Need to figure out how to not configure width and heigh and use psotion relative
+    if I use postion relative the cards go white and and put all together. */
+    margin: 5px auto 0;
+    width: 175px;
+    height: 175px;
+    transform-style: preserve-3d;
+    transition: .3s ease;
+}
 
-
+.cardselect {
+    text-align: center;  
+    width: auto;  
+    height: auto;  
+    padding-top: center; 
+}
 
 
