@@ -9,54 +9,54 @@ const hardBtn = document.getElementById("hardBtn")
 const easyContainer = document.getElementById("easyContainer")
 const mediumContainer = document.getElementById("mediumContainer")
 const hardContainer = document.getElementById("hardContainer")
-const turns = document.createElement("h2")
 const flippedCard = document.getElementsByClassName("card flipCard disabled")
 const modal = document.getElementById("modal")
 const winner = document.getElementById("winner")
 const form = document.getElementById("form")
 const commentList = document.getElementById("commentList")
 const newComment = document.createElement("ul")
+const gameInfo = document.getElementById("gameInfo")
+
+const turns = document.createElement("h2")
+let turnsTaken = 0;
+turns.innerText = "Turns Taken " + `${turnsTaken}`
+
 const resetBtn = document.createElement("button")
 resetBtn.innerText = "RESET"
 resetBtn.className = "button"
+
 let difficulty;
-let turnsTaken = 0;
 let finalArray = [];
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
     difficulty = 1;
-    reset()
-    turns.innerText = "Turns Taken " + `${turnsTaken}`
-    easyContainer.append(turns, resetBtn)
-    fetchData()
-    document.querySelector(".buttonContainer").style.display = "none"
+    defaults()
 }
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame() {
     difficulty = 12
-    reset()
-    turns.innerText = "Turns Taken " + `${turnsTaken}`
-    mediumContainer.append(turns, resetBtn)
-    fetchData()
-    document.querySelector(".buttonContainer").style.display = "none"
+    defaults()
 }
 hardBtn.addEventListener("click", hardGame)
 function hardGame() {
     difficulty = 15
+    defaults()
+}
+
+function defaults(){
     reset()
-    turns.innerText = "Turns Taken " + `${turnsTaken}`
-    hardContainer.append(turns, resetBtn)
+    gameInfo.append(turns, resetBtn)
     fetchData()
     document.querySelector(".buttonContainer").style.display = "none"
 }
 
 function reset() {
+    gameInfo.innerHTML =""
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
     turnsTaken = 0;
-    //turns.innerText = "Turns Taken " + `${turnsTaken}`
     finalArray = [];
     document.querySelector(".buttonContainer").style.display = "inline"
 }
