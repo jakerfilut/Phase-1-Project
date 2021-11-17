@@ -16,10 +16,12 @@ const form = document.getElementById("form")
 const commentList = document.getElementById("commentList")
 const newComment = document.createElement("ul")
 const gameInfo = document.getElementById("gameInfo")
+const newGame = document.getElementById("newGame")
 
 const turns = document.createElement("h2")
 let turnsTaken = 0;
 turns.innerText = "Turns Taken " + `${turnsTaken}`
+turns.className = "turns"
 
 const resetBtn = document.createElement("button")
 resetBtn.innerText = "RESET"
@@ -149,18 +151,20 @@ function checkFlippedCards(e) {
             newComment.innerText = `Name: ${nameInput} Score:  ${turnsTaken}`
             console.log(newComment)
             commentList.appendChild(newComment)
-            //form.removeEventListener("submit", highscore)
-            // This will work but if you hit submit again it deletes highscores.
+            form.removeEventListener("submit", highscore)
+
+            // This will work but if you hit submit again it delete highscores.
             form.reset()
         }
         document.querySelector('.close').addEventListener('click', closeScores)
-        function closeScores() {
-            //console.log("closed")
-            document.querySelector(".bg-modal").style.display = "none";
-            console.log("closed")
-            reset()
-        }
     }
 }
 
+function closeScores() {
+    document.querySelector(".bg-modal").style.display = "none";
+    console.log("closed")
+    reset()
+}
+
 resetBtn.addEventListener("click", reset)
+newGame.addEventListener("click", closeScores)
