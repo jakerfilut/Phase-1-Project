@@ -1,13 +1,5 @@
 const base_url = "https://rickandmortyapi.com/api"
-const char_url = "https://rickandmortyapi.com/api/character"
-const rickSanchez = "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-const mortySmith = "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-const summerSmith = "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-const bethSmith = "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
-const jerrySmith = "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
-const adjudicatorRick = "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
-const birdPerson = "https://rickandmortyapi.com/api/character/avatar/47.jpeg"
-const mrPoopy = "https://rickandmortyapi.com/api/character/avatar/244.jpeg"
+const char_url_page = "https://rickandmortyapi.com/api/character?page="
 
 const card = document.querySelectorAll(".card")
 const easyBtn = document.getElementById("easyBtn")
@@ -22,159 +14,64 @@ const modal = document.getElementById("modal")
 const winner = document.getElementById("winner")
 const form = document.getElementById("form")
 const commentList = document.getElementById("commentList")
+const newComment = document.createElement("ul")
 let difficulty;
-
 let turnsTaken = 0;
-
-fetch(char_url)
-    .then(res => res.json())
-    .then(loopThroughChar)
-
-function loopThroughChar(chars) {
-
-    chars.results.forEach(renderChar)
-}
-
-function renderChar(char) {
-}
-
-// const easy16 = [
-//     { imgSrc: rickSanchez, name: "rick-sanchez" },
-//     { imgSrc: mortySmith, name: "morty-smith" },
-//     { imgSrc: summerSmith, name: "summer-smith" },
-//     { imgSrc: bethSmith, name: "beth-smith" },
-//     { imgSrc: jerrySmith, name: "jerry-smith" },
-//     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-//     { imgSrc: birdPerson, name: "bird-preson" },
-//     { imgSrc: mrPoopy, name: "mr-poopy" },
-//     { imgSrc: rickSanchez, name: "rick-sanchez" },
-//     { imgSrc: mortySmith, name: "morty-smith" },
-//     { imgSrc: summerSmith, name: "summer-smith" },
-//     { imgSrc: bethSmith, name: "beth-smith" },
-//     { imgSrc: jerrySmith, name: "jerry-smith" },
-//     { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-//     { imgSrc: birdPerson, name: "bird-preson" },
-//     { imgSrc: mrPoopy, name: "mr-poopy" }
-// ]
-
-const easy16 = [
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-
-]
-
-const medium30 = [
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" }
-]
-const hard42 = [
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: adjudicatorRick, name: "adjucicator-rick" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" },
-    { imgSrc: rickSanchez, name: "rick-sanchez" },
-    { imgSrc: mortySmith, name: "morty-smith" },
-    { imgSrc: summerSmith, name: "summer-smith" },
-    { imgSrc: bethSmith, name: "beth-smith" },
-    { imgSrc: jerrySmith, name: "jerry-smith" },
-    { imgSrc: birdPerson, name: "bird-preson" },
-    { imgSrc: mrPoopy, name: "mr-poopy" }
-]
+let finalArray = [];
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
+    difficulty = 8;
     reset()
-    difficulty = easy16;
-    randomizer()
+    fetchData()
 }
 
 mediumBtn.addEventListener("click", mediumGame)
 function mediumGame() {
+    difficulty = 12
     reset()
-    difficulty = medium30;
-    randomizer()
+    fetchData()
 }
 hardBtn.addEventListener("click", hardGame)
 function hardGame() {
+    difficulty = 15
     reset()
-    difficulty = hard42;
-    randomizer()
-
+    fetchData()
 }
 
-function reset(){
+function reset() {
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
     turnsTaken = 0;
     turns.innerText = "Turns Taken " + `${turnsTaken}`
-    newcomment = ""
+    finalArray = [];
+}
+
+function fetchData(){
+    let page = Math.floor(Math.random() * 42) + 0;
+    fetch(char_url_page + `${page}`)
+        .then(res => res.json())
+        .then(loopThroughChar)
+
+    function loopThroughChar(chars) {
+        for (let i = 0; i < difficulty; i++) {
+            newImage = (chars.results[i].image)
+            newName = (chars.results[i].id)
+            let newImgObj = { imgSrc: newImage, name: newName };
+            newImage2 = (chars.results[i].image)
+            newName2 = (chars.results[i].id)
+            let newImgObj2 = { imgSrc: newImage2, name: newName2 };
+            finalArray.push(newImgObj, newImgObj2)
+        }
+        console.log(finalArray)
+        randomizer()
+    }
 }
 
 function randomizer() {
-    let cardData = difficulty
-    cardData.sort(() => Math.random() - 0.5);
-    cardData.forEach(renderCards)
+    finalArray.sort(() => Math.random() - 0.5);
+    finalArray.forEach(renderCards)
     function renderCards(cards) {
         const card = document.createElement("div")
         card.className = "card"
@@ -184,14 +81,13 @@ function randomizer() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-        if (difficulty.length === 2) {
-            //change back to 16 after testing
+        if (finalArray.length === 16) {
             easyContainer.append(card)
             card.append(face, back)
-        } if (difficulty.length === 30) {
+        } if (finalArray.length === 24) {
             mediumContainer.append(card)
             card.append(face, back)
-        } if (difficulty.length === 42) {
+        } if (finalArray.length === 30) {
             hardContainer.append(card)
             card.append(face, back)
         }
@@ -206,7 +102,6 @@ function randomizer() {
 function checkFlippedCards(e) {
     const clickedCard = e.target
     clickedCard.parentNode.classList.add("disabled")
-
     clickedCard.classList.add("turnedOver")
     const flippedCardsCheck = document.querySelectorAll(".turnedOver")
     if (flippedCardsCheck.length === 2) {
@@ -222,33 +117,33 @@ function checkFlippedCards(e) {
         } else {
             flippedCardsCheck.forEach(flipBackCards)
             function flipBackCards(cards) {
-
                 cards.classList.remove("turnedOver")
                 cards.parentNode.classList.remove("disabled")
-                setTimeout(() => cards.parentNode.classList.remove("flipCard"), 750);
+                setTimeout(() => cards.parentNode.classList.remove("flipCard"), 500);
             }
             turnsTaken++
             turns.innerText = "Turns Taken " + `${turnsTaken}`
         }
     }
-    if (flippedCard.length === difficulty.length) {
+    if (flippedCard.length === finalArray.length) {
         document.querySelector(".bg-modal").style.display = "flex";
         winner.innerText = "Congratulations, Your score was " + `${turnsTaken}`
-        form.addEventListener("submit", highscore)
+        form.addEventListener('submit', highscore)
         function highscore(e) {
             e.preventDefault()
-            let newComment = document.createElement("li")
-            let nameInput = e.target.comment.value
-            newComment.textContent = `Name: ${nameInput} Score:  ${turnsTaken}`
-            commentList.append(newComment)
+            console.log({ e })
+            // let newComment = document.createElement("ul")
+            // let nameInput = e.target.comment.value
+            // newComment.innerText = `Name: ${nameInput} Score:  ${turnsTaken}`
+            console.log(newComment)
+            commentList.appendChild(newComment)
             form.reset()
         }
         document.querySelector('.close').addEventListener('click', closeScores)
-        function closeScores(){
+        function closeScores() {
             console.log("closed")
             document.querySelector(".bg-modal").style.display = "none";
             reset()
         }
-
     }
 }

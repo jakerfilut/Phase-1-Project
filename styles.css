@@ -3,8 +3,6 @@ margin: 0;
 padding: 0;
 }
 
-
-
 .easy-card-container{
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -14,7 +12,7 @@ padding: 0;
 }
 .medium-card-container{
     display:grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     grid-gap: 10px;
     justify-content: center;
     perspective: 1500px;
@@ -51,7 +49,7 @@ padding: 0;
     width: 175px;
     height: 175px;
     transform-style: preserve-3d;
-    transition: 1s ease;
+    transition: .3s ease;
     
     
 }
@@ -62,6 +60,10 @@ padding: 0;
     position: absolute;
 }
 .back {
+    /* position: relative;
+    background-image: url("https://wallpapercave.com/wp/wp6557207.jpg");
+    background-size: 175px 175px; */
+
     background:rgb(59, 3, 192);
     backface-visibility: hidden;
 }
