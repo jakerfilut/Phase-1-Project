@@ -24,7 +24,7 @@ turns.innerText = "Turns Taken " + `${turnsTaken}`
 turns.className = "turns"
 
 const resetBtn = document.createElement("button")
-resetBtn.innerText = "RESET"
+resetBtn.innerText = "New Game"
 resetBtn.className = "button"
 
 let difficulty;
