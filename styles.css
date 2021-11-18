@@ -8,7 +8,7 @@ body {
   }
 
 .easy-card-container{
-    display: grid;
+    display:grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
     justify-content: center;
@@ -94,16 +94,21 @@ body {
 	top:1px;
 }
 
-.buttonContainer{
-    text-align: center;  
+.buttonContainer {
+    text-align: center;
     width: auto;  
     height: auto;  
-    padding-top: center;   
+    /* padding-top: center; */
+}
+
+#btnHolder {
+display: flex;
+justify-content: center;
 }
 
 .title2 {
-    padding-top: 400px;
-    font-family: Nesatho;
+    padding-top: 100px;
+    font-family: Helvetica;
     font-size: 100px;
 }
  
@@ -118,7 +123,7 @@ body {
     transition: .3s ease;
 }
 
-.face, .back{
+.face, .back {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -162,7 +167,7 @@ body {
     position: relative;
 }
 
-.close{
+.close {
     position: absolute;
     top: 0;
     right: 7px;
@@ -175,13 +180,13 @@ body {
 display: inline;
 }
 
-.gameInfo{
+.gameInfo {
     padding-top: 65px;
     position: center;
     padding-left: 400px;
 }
 
-.reset{
+.reset {
     right: 100px
 }
 
