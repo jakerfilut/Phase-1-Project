@@ -102,6 +102,7 @@ body {
 }
 
 .title2 {
+    padding-top: 400px;
     font-family: Nesatho;
     font-size: 100px;
 }
@@ -175,8 +176,9 @@ display: inline;
 }
 
 .gameInfo{
-    position: relative;
-    right: 10px;
+    padding-top: 65px;
+    position: center;
+    padding-left: 400px;
 }
 
 .reset{
