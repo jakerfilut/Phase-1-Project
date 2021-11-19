@@ -29,6 +29,7 @@ turns.className = "turns"
 const resetBtn = document.createElement("button")
 resetBtn.innerText = "New Game"
 resetBtn.className = "button"
+resetBtn.id = "newGame"
 
 let difficulty;
 let finalArray = [];
@@ -62,6 +63,7 @@ function reset() {
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
     turnsTaken = 0;
+    turns.innerText = "Score: " + `${turnsTaken}`
     finalArray = [];
     document.querySelector(".buttonContainer").style.display = "inline"
 }
@@ -127,7 +129,6 @@ function checkFlippedCards(e) {
             function removeTurnOver(cards) {
                 cards.classList.remove("turnedOver")
                 cards.parentNode.classList.add("disabled")
-                console.log(flippedCard.length)
             }
             turnsTaken++
             turns.innerText = "Score: " + `${turnsTaken}`
@@ -148,11 +149,9 @@ function checkFlippedCards(e) {
         form.addEventListener('submit', highscore)
         function highscore(e) {
             e.preventDefault()
-            console.log({ e })
             let newComment = document.createElement("ul")
             let nameInput = e.target.comment.value
             newComment.innerText = `${nameInput}: ${turnsTaken}`
-            console.log(newComment)
             if(flippedCard.length === 2){
                 easyCommentList.appendChild(newComment)
             } if (flippedCard.length === 24){
@@ -160,10 +159,7 @@ function checkFlippedCards(e) {
             } if (flippedCard.length === 40){
                 hardCommentList.appendChild(newComment)
             }
-            // commentList.appendChild(newComment)
             form.removeEventListener("submit", highscore)
-
-            // This will work but if you hit submit again it delete highscores.
             form.reset()
         }
         document.querySelector('.close').addEventListener('click', closeScores)
@@ -172,9 +168,9 @@ function checkFlippedCards(e) {
 
 function closeScores() {
     document.querySelector(".bg-modal").style.display = "none";
-    console.log("closed")
+    turnsTaken = 0;
     reset()
 }
 
 resetBtn.addEventListener("click", reset)
-newGame.addEventListener("click", closeScores)
+newGame.addEventListener("click", reset)
