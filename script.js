@@ -58,7 +58,7 @@ function defaults(){
 }
 
 function reset() {
-    gameInfo.innerHTML =""
+    gameInfo.innerHTML = ""
     easyContainer.innerHTML = ""
     mediumContainer.innerHTML = ""
     hardContainer.innerHTML = ""
