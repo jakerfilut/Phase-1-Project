@@ -1,188 +1,211 @@
 *{
-margin: 0;
-padding: 0;
-}
-
-body {
-    background-color: lightblue;
-  }
-
-.easy-card-container{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
+    margin: 0;
+    padding: 0;
+    }
+    
+    body {
+        background-color: lightblue;
+      }
+    
+    .easy-card-container {
+        display:grid;
+        grid-template-columns: repeat(4, auto);
+        grid-gap: 10px;
+        justify-content: center;
+        perspective: 1500px;
+    }
+    .medium-card-container {
+        display:grid;
+        grid-template-columns: repeat(6, auto);
+        grid-gap: 10px;
+        justify-content: center;
+        perspective: 1500px;
+    }
+    .hard-card-container {
+        display:grid;
+        grid-template-columns: repeat(6, auto);
+        grid-gap: 10px;
+        justify-content: center;
+        perspective: 1500px;
+    }
+    
+      .title {
+          font-family: Soopafresh;
+          font-size: 100px;
+          letter-spacing: 9px;
+          -webkit-text-stroke: .4px rgb(0, 0, 0);
+          color: #6BBF59;
+          text-align: center;
+          text-shadow: 0px 0px 20px #3d96f5;
+          
+          
+      }
+      .matching-game {
+        font-family: Soopafresh;
+        font-size: 50px;
+        -webkit-text-stroke: .8px rgb(0, 0, 0);
+        letter-spacing: 5px;
+        color: #6BBF59;
+          text-align: center;
+          text-shadow: 0px 0px 20px #3d96f5;
+      }
+    
+      .button {
+        background:linear-gradient(to bottom, #6BBF59 5%, #08A045 100%);
+        background-color:#3d96f5;
+        border-radius:6px;
+        border:2px solid #337fed;
+        cursor:pointer;
+        color:#000000;
+        font-size:15px;
+        font-weight:bold;
+        letter-spacing: 3px;
+        font-size: 50px;
+        font-family: Soopafresh;
+        padding:6px 12px;
+        text-align: center;
+        margin: 20px;
+    }
+    
+    .submitbutton {
+        box-shadow:inset 0px 1px 0px 0px #97c4fe;
+        background:linear-gradient(to bottom, #3d96f5 5%, #1e62d0 100%);
+        background-color:#3d96f5;
+        border-radius:6px;
+        border:1px solid #337fed;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #1570cd;
+        text-align: center;
+        font-size: 10px;
+    }
+    
+    .button:hover {
+        background:linear-gradient(to bottom, #1e62d0 5%, #3d96f5 100%);
+        background-color:#1e62d0;
+    }
+    
+    .button:active {
+        position:relative;
+        top:1px;
+    }
+    
+    .buttonContainer {
+        text-align: center;
+        width: auto;  
+        height: auto;  
+        /* padding-top: center; */
+    }
+    
+    #btnHolder {
+    display: flex;
     justify-content: center;
-    perspective: 1500px;
-}
-.medium-card-container{
-    display:grid;
-    grid-template-columns: repeat(6, auto);
-    grid-gap: 10px;
-    justify-content: center;
-    perspective: 1500px;
-}
-.hard-card-container{
-    display:grid;
-    grid-template-columns: repeat(6,auto );
-    grid-gap: 10px;
-    justify-content: center;
-    perspective: 1500px;
-}
-
-  .title {
-      font-family: Soopafresh;
-      font-size: 100px;
-      letter-spacing: 9px;
-      -webkit-text-stroke: .4px rgb(0, 0, 0);
-      color: #6BBF59;
-      text-align: center;
-      text-shadow: 0px 0px 20px #3d96f5;
-      
-      
-  }
-  .matching-game {
-    font-family: Soopafresh;
-    font-size: 50px;
-    -webkit-text-stroke: .8px rgb(0, 0, 0);
-    letter-spacing: 5px;
-    color: #6BBF59;
-      text-align: center;
-      text-shadow: 0px 0px 20px #3d96f5;
-  }
-
-  .button {
-	background:linear-gradient(to bottom, #6BBF59 5%, #08A045 100%);
-	background-color:#3d96f5;
-	border-radius:6px;
-	border:2px solid #337fed;
-	cursor:pointer;
-	color:#000000;
-	font-size:15px;
-	font-weight:bold;
-	letter-spacing: 3px;
-    font-size: 50px;
-    font-family: Soopafresh;
-    padding:6px 12px;
-    text-align: center;
-    margin: 20px;
-}
-
-.submitbutton {
-	box-shadow:inset 0px 1px 0px 0px #97c4fe;
-	background:linear-gradient(to bottom, #3d96f5 5%, #1e62d0 100%);
-	background-color:#3d96f5;
-	border-radius:6px;
-	border:1px solid #337fed;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #1570cd;
-    text-align: center;
-    font-size: 10px;
-}
-.button:hover {
-	background:linear-gradient(to bottom, #1e62d0 5%, #3d96f5 100%);
-	background-color:#1e62d0;
-}
-.button:active {
-	position:relative;
-	top:1px;
-}
-
-.buttonContainer{
-    text-align: center;  
-    width: auto;  
-    height: auto;  
-    padding-top: center;   
-}
-
-.title2 {
-    padding-top: 400px;
-    font-family: Nesatho;
-    font-size: 100px;
-}
- 
-.card {
-    /* position: relative; */
-    /* Need to figure out how to not configure width and heigh and use psotion relative
-    if I use postion relative the cards go white and and put all together. */
-    margin: 5px auto 0;
-    width: 175px;
-    height: 175px;
-    transform-style: preserve-3d;
-    transition: .3s ease;
-}
-
-.face, .back{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-.back {
-    /* position: relative;
-    background-image: url("https://wallpapercave.com/wp/wp6557207.jpg");
-    background-size: 175px 175px; */
-
-    background:rgb(59, 3, 192);
-    backface-visibility: hidden;
-}
-
-.flipCard {
-    transform: rotateY(180deg);
-}
-
-.disabled {
-    pointer-events: none;
-}
-
-.bg-modal {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    position: absolute;
-    top: 0;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
-.modal-content {
-    width: 500px;
-    height: 300px;
-    background-color:white;
-    border-radius: 4px;
-    padding: 40px;
-    text-align:center;
-    position: relative;
-}
-
-.close{
-    position: absolute;
-    top: 0;
-    right: 7px;
-    font-size: 40px;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-
-.turns, .reset {
-display: inline;
-}
-
-.gameInfo{
-    padding-top: 65px;
-    position: center;
-    padding-left: 400px;
-}
-
-.reset{
-    right: 100px
-}
-
-
+    }
+    
+    .title2 {
+        padding-top: 100px;
+        font-family: Helvetica;
+        font-size: 100px;
+    }
+     
+    .card {
+        /* position: relative; */
+        /* Need to figure out how to not configure width and heigh and use psotion relative
+        if I use postion relative the cards go white and and put all together. */
+        margin: 5px auto 0;
+        width: 10em;
+        height: 14em;
+        transform-style: preserve-3d;
+        transition: .3s ease;
+        box-shadow: 1px 1px 3px #000; 
+        -moz-box-shadow: 1px 1px 3px #000; 
+        -webkit-box-shadow: 1px 1px 3px #000;
+        border-radius:10px; 
+        -moz-border-radius:10px; 
+        -webkit-border-radius:10px;
+    }
+    
+    .face, .back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        box-shadow: 1px 1px 3px #000; 
+        -moz-box-shadow: 1px 1px 3px #000; 
+        -webkit-box-shadow: 1px 1px 3px #000;
+        border-radius:10px; 
+        -moz-border-radius:10px; 
+        -webkit-border-radius:10px;
+    }
+    
+    .back {
+        /* position: relative; */
+        /* background-image: url("https://wallpapercave.com/wp/wp6557207.jpg");
+        background-size: 175px 175px; */
+    
+        background:rgb(59, 3, 192);
+        /* background:black; */
+        backface-visibility: hidden;
+    }
+    
+    .flipCard {
+        transform: rotateY(180deg);
+    }
+    
+    .disabled {
+        pointer-events: none;
+    }
+    
+    .bg-modal {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        position: absolute;
+        top: 0;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    
+    .modal-content {
+        width: 500px;
+        height: 300px;
+        background-color:white;
+        border-radius: 4px;
+        padding: 40px;
+        text-align:center;
+        position: relative;
+    }
+    
+    .close {
+        position: absolute;
+        top: 0;
+        right: 7px;
+        font-size: 40px;
+        transform: rotate(45deg);
+        cursor: pointer;
+    }
+    
+    .turns, .reset {
+    display: inline;
+    }
+    
+    .gameInfo {
+        padding-top: 65px;
+        position: center;
+        padding-left: 400px;
+    }
+    
+    .reset {
+        right: 100px
+    }
+    .commentList{
+        display:grid;
+        grid-template-columns: repeat(3, auto);
+    }

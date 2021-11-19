@@ -11,9 +11,11 @@
   <h1 class="matching-game">Matching Game</h1>
   <div class=buttonContainer>
     <h1 class=title2>Select Difficulty</h1>
+    <div id="btnHolder">
     <button id="easyBtn" class=button>Easy</button>
     <button id="mediumBtn" class=button>Medium</button>
     <button id="hardBtn" class=button>Hard</button>
+  </div>
   </div>
   <div id ="gameInfo" class = "gameInfo"></div>
     <div id="easyContainer" class="easy-card-container"></div>
@@ -28,9 +30,10 @@
         <button class="submitbutton" id="submitScores">Submit Score</button>
         <h2>HIGHSCORES</h2>
         
-        <div id="commentList">
-          <div>
-          <button class="submitbutton" id="newGame">NEW GAME</button>
+        <div id="commentList" class= "commentList">
+          <div class ="easyCommentList" id ="easyCommentList">EASY</div>
+          <div class ="mediumCommentList" id ="mediumCommentList">MEDIUM</div>
+          <div class ="hardCommentList" id ="hardCommentList">HARD</div>
         </div>
         </div>
       </form>

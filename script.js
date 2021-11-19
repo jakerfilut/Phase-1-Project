@@ -17,6 +17,9 @@ const commentList = document.getElementById("commentList")
 const newComment = document.createElement("ul")
 const gameInfo = document.getElementById("gameInfo")
 const newGame = document.getElementById("newGame")
+const mediumCommentList = document.getElementById("mediumCommentList")
+const easyCommentList = document.getElementById("easyCommentList")
+const hardCommentList = document.getElementById("hardCommentList")
 
 const turns = document.createElement("h2")
 let turnsTaken = 0;
@@ -148,9 +151,16 @@ function checkFlippedCards(e) {
             console.log({ e })
             let newComment = document.createElement("ul")
             let nameInput = e.target.comment.value
-            newComment.innerText = `Name: ${nameInput} Score:  ${turnsTaken}`
+            newComment.innerText = `${nameInput}: ${turnsTaken}`
             console.log(newComment)
-            commentList.appendChild(newComment)
+            if(flippedCard.length === 2){
+                easyCommentList.appendChild(newComment)
+            } if (flippedCard.length === 24){
+                mediumCommentList.appendChild(newComment)
+            } if (flippedCard.length === 40){
+                hardCommentList.appendChild(newComment)
+            }
+            // commentList.appendChild(newComment)
             form.removeEventListener("submit", highscore)
 
             // This will work but if you hit submit again it delete highscores.
