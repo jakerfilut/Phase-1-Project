@@ -23,7 +23,7 @@ const hardCommentList = document.getElementById("hardCommentList")
 
 const turns = document.createElement("h2")
 let turnsTaken = 0;
-turns.innerText = "Turns Taken " + `${turnsTaken}`
+turns.innerText = "Score: " + `${turnsTaken}`
 turns.className = "turns"
 
 const resetBtn = document.createElement("button")
@@ -130,7 +130,7 @@ function checkFlippedCards(e) {
                 console.log(flippedCard.length)
             }
             turnsTaken++
-            turns.innerText = "Turns Taken " + `${turnsTaken}`
+            turns.innerText = "Score: " + `${turnsTaken}`
         } else {
             flippedCardsCheck.forEach(flipBackCards)
             function flipBackCards(cards) {
@@ -139,7 +139,7 @@ function checkFlippedCards(e) {
                 setTimeout(() => cards.parentNode.classList.remove("flipCard"), 500);
             }
             turnsTaken++
-            turns.innerText = "Turns Taken " + `${turnsTaken}`
+            turns.innerText = "Score: " + `${turnsTaken}`
         }
     }
     if (flippedCard.length === finalArray.length) {
