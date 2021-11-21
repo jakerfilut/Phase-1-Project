@@ -36,7 +36,7 @@ let finalArray = [];
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
-    difficulty = 2;
+    difficulty = 8;
     defaults()
 }
 mediumBtn.addEventListener("click", mediumGame)
@@ -102,7 +102,7 @@ function randomizer() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-        if (finalArray.length === 4) {
+        if (finalArray.length === 16) {
             easyContainer.append(card)
             card.append(face, back)
         } if (finalArray.length === 24) {
@@ -154,7 +154,7 @@ function checkFlippedCards(e) {
             let newComment = document.createElement("ul")
             let nameInput = e.target.comment.value
             newComment.innerText = `${nameInput}: ${turnsTaken}`
-            if(flippedCard.length === 4){
+            if(flippedCard.length === 16){
                 easyCommentList.appendChild(newComment)
             } if (flippedCard.length === 24){
                 mediumCommentList.appendChild(newComment)
