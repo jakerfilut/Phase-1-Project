@@ -158,9 +158,9 @@
     
     .back {
         /* position: relative; */
-        /* background-image: url("https://wallpapercave.com/wp/wp6557207.jpg");
-        background-size: 175px 175px; */
-    
+        /* background-image: url("https://wallpapercave.com/wp/wp6557207.jpg");*/
+        /* /* background-size: 175px 175px;  */
+        /* background-image: url("https://www.pngkit.com/png/full/4-49052_rickandmorty-rickhappy1500-rick-and-morty-rick-face.png"); */
         background:rgb(59, 3, 192);
         /* background:black; */
         backface-visibility: hidden;

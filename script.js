@@ -158,7 +158,7 @@ function checkFlippedCards(e) {
                 easyCommentList.appendChild(newComment)
             } if (flippedCard.length === 24){
                 mediumCommentList.appendChild(newComment)
-            } if (flippedCard.length === 40){
+            } if (flippedCard.length === 30){
                 hardCommentList.appendChild(newComment)
             }
             form.removeEventListener("submit", highscore)
