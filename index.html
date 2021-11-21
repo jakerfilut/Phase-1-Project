@@ -7,20 +7,24 @@
 </head>
 
 <body>
-  <h1 class="title"> RICK AND MORTY</h1>
-  <h1 class="matching-game">Matching Game</h1>
+  <div class="titleScreen">
+    <h1 class="title"> RICK AND MORTY</h1>
+    <h1 class="matching-game">Matching Game</h1>
+  </div>
   <div class=buttonContainer>
     <h1 class=title2>Select Difficulty</h1>
     <div id="btnHolder">
-    <button id="easyBtn" class=button>Easy</button>
-    <button id="mediumBtn" class=button>Medium</button>
-    <button id="hardBtn" class=button>Hard</button>
+      <button id="easyBtn" class=button>Easy</button>
+      <button id="mediumBtn" class=button>Medium</button>
+      <button id="hardBtn" class=button>Hard</button>
+    </div>
   </div>
-  </div>
-  <div id ="gameInfo" class = "gameInfo"></div>
+  <div id="gameInfo" class="gameInfo"></div>
+  <div class="cardContainer">
     <div id="easyContainer" class="easy-card-container"></div>
     <div id="mediumContainer" class="medium-card-container"></div>
     <div id="hardContainer" class="hard-card-container"></div>
+  </div>
   <div id="modal" class="bg-modal">
     <div class="modal-content">
       <div class="close">+</div>
@@ -29,15 +33,15 @@
         <input id="comment" type="text" placeholder="Name" required>
         <button class="submitbutton" id="submitScores">Submit Score</button>
         <h2>HIGHSCORES</h2>
-        
-        <div id="commentList" class= "commentList">
-          <div class ="easyCommentList" id ="easyCommentList">EASY</div>
-          <div class ="mediumCommentList" id ="mediumCommentList">MEDIUM</div>
-          <div class ="hardCommentList" id ="hardCommentList">HARD</div>
-        </div>
-        </div>
-      </form>
-    </div>
 
-    <script src="script.js"></script>
+        <div id="commentList" class="commentList">
+          <div class="easyCommentList" id="easyCommentList">EASY</div>
+          <div class="mediumCommentList" id="mediumCommentList">MEDIUM</div>
+          <div class="hardCommentList" id="hardCommentList">HARD</div>
+        </div>
+    </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>

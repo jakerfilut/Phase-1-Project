@@ -28,7 +28,7 @@ turns.className = "turns"
 
 const resetBtn = document.createElement("button")
 resetBtn.innerText = "New Game"
-resetBtn.className = "button"
+resetBtn.className = "newGamebutton"
 resetBtn.id = "newGame"
 
 let difficulty;
@@ -36,7 +36,7 @@ let finalArray = [];
 
 easyBtn.addEventListener("click", easyGame)
 function easyGame() {
-    difficulty = 1;
+    difficulty = 2;
     defaults()
 }
 mediumBtn.addEventListener("click", mediumGame)
@@ -55,6 +55,7 @@ function defaults(){
     gameInfo.append(turns, resetBtn)
     fetchData()
     document.querySelector(".buttonContainer").style.display = "none"
+    document.querySelector(".titleScreen").style.display = "none"
 }
 
 function reset() {
@@ -66,6 +67,7 @@ function reset() {
     turns.innerText = "Score: " + `${turnsTaken}`
     finalArray = [];
     document.querySelector(".buttonContainer").style.display = "inline"
+    document.querySelector(".titleScreen").style.display = "inline"
 }
 
 function fetchData(){
@@ -100,7 +102,7 @@ function randomizer() {
         const back = document.createElement("div")
         back.className = "back"
         back.id = cards.name
-        if (finalArray.length === 2) {
+        if (finalArray.length === 4) {
             easyContainer.append(card)
             card.append(face, back)
         } if (finalArray.length === 24) {
@@ -152,7 +154,7 @@ function checkFlippedCards(e) {
             let newComment = document.createElement("ul")
             let nameInput = e.target.comment.value
             newComment.innerText = `${nameInput}: ${turnsTaken}`
-            if(flippedCard.length === 2){
+            if(flippedCard.length === 4){
                 easyCommentList.appendChild(newComment)
             } if (flippedCard.length === 24){
                 mediumCommentList.appendChild(newComment)
